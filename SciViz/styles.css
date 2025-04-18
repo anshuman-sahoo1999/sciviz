@@ -1,0 +1,198 @@
+body {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
+    transition: all 0.3s ease;
+    margin: 0; /* Ensure no default margin pushes content */
+    padding: 0;
+  }
+  
+  .dark-theme {
+    background: linear-gradient(135deg, #2c3e50, #1a252f);
+    color: #e0e0e0;
+  }
+  
+  .dark-theme .sidebar,
+  .dark-theme .chart-container {
+    background: #34495e;
+    border-color: #4a6078;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .sidebar {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    transition: transform 0.3s ease;
+    padding-bottom: 70px; /* Reserve space for footer (adjust based on footer height) */
+  }
+  
+  .sidebar:hover {
+    transform: translateY(-5px);
+  }
+  
+  .chart-container {
+    background: #ffffff;
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .chart-container:hover {
+    transform: scale(1.01);
+  }
+  
+  svg#chart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tooltip {
+    position: absolute;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.2s ease;
+  }
+  
+  /* Custom Button Styles */
+  .btn {
+    border-radius: 10px;
+    padding: 8px 20px;
+    margin: 5px 0;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  
+  .btn-export {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-export:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .btn-offline {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-offline:hover {
+    background-color: #1e7e34;
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+  }
+  
+  .form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .sidebar, .chart-container {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  /* Accessibility */
+  :focus {
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+  }
+  
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    body {
+      background: #000;
+      color: #fff;
+    }
+    .sidebar, .chart-container {
+      background: #111;
+      border: 2px solid #fff;
+    }
+    .btn-export {
+      background: #fff;
+      color: #000;
+    }
+    .btn-offline {
+      background: #fff;
+      color: #000;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: #000;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sidebar {
+      margin-bottom: 20px;
+      padding-bottom: 90px; /* Increase padding for smaller screens if needed */
+    }
+    .chart-container {
+      height: 400px;
+    }
+  }
+  
+  /* Footer Styling */
+  .footer {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: #ffffff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    height: 60px; /* Explicit height for reference */
+  }
+  
+  .footer a {
+    color: #00d4ff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: #007bff;
+    text-decoration: underline;
+  }

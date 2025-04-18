@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciViz - Scientific Data Visualization Tool</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet">
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- html2canvas and jsPDF for export -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <h1 class="my-4 text-center text-gradient">SciViz: Advanced Data Visualization</h1>
+    <div class="row">
+      <!-- Sidebar for Controls -->
+      <div class="col-md-3">
+        <div class="sidebar shadow-lg">
+          <h5 class="text-gradient">Chart Configuration</h5>
+          <div class="mb-3">
+            <label for="chartType" class="form-label">Chart Type</label>
+            <select id="chartType" class="form-select" aria-label="Select chart type">
+              <option value="scatter">Scatter</option>
+              <option value="line">Line</option>
+              <option value="bar">Bar</option>
+              <option value="pie">Pie</option>
+              <option value="doughnut">Doughnut</option>
+              <option value="area">Area</option>
+              <option value="heatmap">Heatmap</option>
+              <option value="bubble">Bubble</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="dataFile" class="form-label">Upload Data (CSV/JSON)</label>
+            <input type="file" id="dataFile" class="form-control" accept=".csv,.json" aria-describedby="dataFileHelp">
+            <div id="dataFileHelp" class="form-text">Upload a CSV or JSON file to visualize.</div>
+          </div>
+          <div class="mb-3">
+            <label for="manualData" class="form-label">Manual Data Entry (JSON)</label>
+            <textarea id="manualData" class="form-control" rows="4" placeholder='[{"x": 1, "y": 10}, {"x": 2, "y": 20}]'></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="languageSelect" class="form-label">Language</label>
+            <select id="languageSelect" class="form-select" aria-label="Select language">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+          <button id="addAnnotation" class="btn btn-outline-primary mb-2">Add Annotation</button>
+          <button id="exportPng" class="btn btn-primary mb-2">Export PNG</button>
+          <button id="exportSvg" class="btn btn-primary mb-2">Export SVG</button>
+          <button id="exportPdf" class="btn btn-primary mb-2">Export PDF</button>
+          <button id="saveOffline" class="btn btn-success mb-2">Save Offline</button>
+          <button id="loadOffline" class="btn btn-success mb-2">Load Offline</button>
+          <button id="themeToggle" class="btn btn-secondary mb-2">Toggle Theme</button>
+        </div>
+      </div>
+      <!-- Chart Area -->
+      <div class="col-md-9">
+        <div class="chart-container shadow-lg" role="region" aria-label="Interactive chart area">
+          <svg id="chart"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal for Data Errors -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="errorMessage"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer text-center text-white py-3">
+    Designed & Developed with &#x2764; by Anshuman Sahoo. All Rights are Reserved.
+  </footer>
+  <!-- Bootstrap JS and Custom Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
